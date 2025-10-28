@@ -5,5 +5,5 @@ export class Cocktail {
     name : string;
     category : string;
     instructions : string;
-    ingredients : [Ingredient, string];
+    ingredients : Array<[ingredientID : number, quantity : string]>;
 }

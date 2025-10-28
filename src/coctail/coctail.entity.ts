@@ -1,11 +1,9 @@
+import { Ingredience } from "src/ingredience/ingredience.entity";
+
 export class Coctail {
     id : number;
     name : string;
-    ingredients : [
-        {
-            ingredientsId : number;
-            ingredientsName : string;
-            quantity : string;
-        }
-    ]
+    category : string;
+    instructions : string;
+    ingredients : [Ingredience, string];
 }

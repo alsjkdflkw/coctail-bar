@@ -35,6 +35,6 @@ export class CoctailService {
     }
 
     delete(id : number) : void {
-        this.coctails = this.coctails.filter(user => user.id !== id)
+        this.coctails = this.coctails.filter(coctails => coctails.id !== id)
     }
 }

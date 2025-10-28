@@ -21,6 +21,11 @@ export class IngredienceController {
         return this.ingredienceService.create(ingredience);
     }
 
+    @Put(':id')
+    update(@Param('id') id: string, @Body() updatedIngredience : Partial<Ingredience>): Ingredience {
+        return this.ingredienceService.update(+id, updatedIngredience);
+    }
+
     @Delete(':id')
     delete(@Param('id') id : string) : void {
         this.ingredienceService.delete(+id);

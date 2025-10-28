@@ -35,6 +35,12 @@ export class CoctailService {
     }
 
     delete(id : number) : void {
+        const coctail = this.coctails.find(c => c.id === id);
+        
+        if (!coctail) {
+            throw new NotFoundException(`Coctail with ID #${id} not found`);
+        }
+
         this.coctails = this.coctails.filter(coctails => coctails.id !== id)
     }
 }

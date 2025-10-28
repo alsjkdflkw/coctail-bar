@@ -12,11 +12,11 @@ export class IngredienceService {
     }
 
     findOne(id: number): Ingredience {
-    const ingredience = this.ingredience.find(c => c.id === id);
+        const ingredience = this.ingredience.find(c => c.id === id);
 
-    if (!ingredience) {
-        throw new NotFoundException(`Ingredience with ID #${id} not found`);
-    }
+        if (!ingredience) {
+            throw new NotFoundException(`Ingredience with ID #${id} not found`);
+        }
 
         return ingredience;
     }
@@ -36,6 +36,12 @@ export class IngredienceService {
     }
 
     delete(id : number) : void {
+        const ingredience = this.ingredience.find(c => c.id === id)
+
+        if(!ingredience) {
+            throw new NotFoundException(`Ingredience with ID #${id} not found`);
+        }
+
         this.ingredience = this.ingredience.filter(ingredience => ingredience.id !== id)
     }
 }

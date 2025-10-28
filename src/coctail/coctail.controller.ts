@@ -22,6 +22,11 @@ export class CoctailController {
         return this.coctailService.create(coctail);
     }
 
+    @Put(':id')
+        update(@Param('id') id: string, @Body() updatedCoctail : Partial<Coctail>): Coctail {
+            return this.coctailService.update(+id, updatedCoctail);
+    }
+
     @Delete(':id')
     delete(@Param('id') id : string) : void {
         this.coctailService.delete(+id);

@@ -1,32 +1,32 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { Coctail } from './coctail.entity';
+import { Cocktail } from './cocktail.entity';
 
 @Injectable()
 export class CoctailService {
-    private coctails : Coctail[] = [];
+    private coctails : Cocktail[] = [];
     private idCouter : number = 1;
 
-    findAll() : Coctail[] {
+    findAll() : Cocktail[] {
         return this.coctails;
     }
 
-    findOne(id: number): Coctail {
+    findOne(id: number): Cocktail {
     const coctail = this.coctails.find(c => c.id === id);
 
     if (!coctail) {
-        throw new NotFoundException(`Coctail with ID #${id} not found`);
+        throw new NotFoundException(`Cocktail with ID #${id} not found`);
     }
 
     return coctail;
 }
 
-    create(coctail : Coctail) : Coctail {
+    create(coctail : Cocktail) : Cocktail {
         coctail.id = this.idCouter++;
         this.coctails.push(coctail);
         return coctail;
     }
 
-    update(id : number, updatedCoctail : Partial<Coctail>) : Coctail {
+    update(id : number, updatedCoctail : Partial<Cocktail>) : Cocktail {
         const coctail = this.findOne(id)
         if (coctail) {
             Object.assign(coctail, updatedCoctail);
@@ -38,7 +38,7 @@ export class CoctailService {
         const coctail = this.coctails.find(c => c.id === id);
         
         if (!coctail) {
-            throw new NotFoundException(`Coctail with ID #${id} not found`);
+            throw new NotFoundException(`Cocktail with ID #${id} not found`);
         }
 
         this.coctails = this.coctails.filter(coctails => coctails.id !== id)

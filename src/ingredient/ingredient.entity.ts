@@ -7,5 +7,5 @@ export class Ingredient {
     description : string;
     @IsBoolean()
     hasAlcohol : boolean;
-    photo : Buffer;
+    photo : string;
 }

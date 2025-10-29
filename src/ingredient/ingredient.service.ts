@@ -1,5 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { Ingredient } from './ingredient.entity';
+import { IsNumberString } from 'class-validator'
 
 @Injectable()
 export class IngredienceService {
